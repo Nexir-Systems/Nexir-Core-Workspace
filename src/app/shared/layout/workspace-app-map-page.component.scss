@@ -1,0 +1,83 @@
+.nx-app-map__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 2rem 1.9rem 2.1rem;
+}
+
+.nx-app-map__intro .nx-page-title {
+  font: var(--mat-sys-headline-small);
+  letter-spacing: -0.03em;
+}
+
+.nx-app-map__intro .nx-page-subtitle {
+  max-width: 40rem;
+  line-height: 1.55;
+}
+
+.nx-app-map__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.15rem;
+}
+
+.nx-app-map__intro .mat-mdc-button-base mat-icon {
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.nx-app-map__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font: var(--mat-sys-body-large);
+  line-height: 1.5;
+}
+
+.nx-app-map__list li {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--nx-card-border);
+  background-color: color-mix(in srgb, var(--nx-surface-inset) 92%, transparent 8%);
+}
+
+.nx-app-map__list strong {
+  font: var(--mat-sys-title-small);
+  color: var(--mat-sys-primary);
+  font-weight: 600;
+}
+
+.nx-app-map__dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.nx-app-map__dl > div {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--nx-card-border);
+  background-color: color-mix(in srgb, var(--nx-surface-inset) 92%, transparent 8%);
+}
+
+.nx-app-map__dl dt {
+  font: var(--mat-sys-title-small);
+  margin: 0 0 0.35rem;
+  color: var(--mat-sys-on-surface);
+}
+
+.nx-app-map__dl dd {
+  margin: 0;
+  font: var(--mat-sys-body-medium);
+  color: var(--mat-sys-on-surface-variant);
+  line-height: 1.5;
+}

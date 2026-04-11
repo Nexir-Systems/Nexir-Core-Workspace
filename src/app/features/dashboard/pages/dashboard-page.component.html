@@ -1,0 +1,56 @@
+<div class="nx-product-page nx-dashboard">
+  <div class="nx-dashboard__header">
+    <div>
+      <h1 class="nx-page-title">Dashboard</h1>
+      <p class="nx-page-subtitle">Entry point to workspace data and preferences.</p>
+    </div>
+    <nx-status-badge label="Session active" tone="positive" />
+  </div>
+
+  <nx-section-card title="Workspace" subtitle="Signed-in context">
+    <p class="nx-dashboard__summary">{{ dashboard.sessionSummary() }}</p>
+    <p class="nx-muted nx-dashboard__count">
+      {{ entities.items().length }} record(s) in the mock catalog
+    </p>
+  </nx-section-card>
+
+  <nx-section-card title="Quick actions" subtitle="Primary navigation">
+    <div class="nx-dashboard__actions">
+      <a mat-flat-button color="primary" routerLink="/app/entities/new">
+        <mat-icon>add</mat-icon>
+        Create new entity
+      </a>
+      <a mat-stroked-button routerLink="/app/entities">
+        <mat-icon>table_rows</mat-icon>
+        Browse entities
+      </a>
+      <a mat-stroked-button routerLink="/app/favorites">
+        <mat-icon>star</mat-icon>
+        Favorites
+      </a>
+      <a mat-stroked-button routerLink="/app/account">
+        <mat-icon>account_circle</mat-icon>
+        Account
+      </a>
+      <a mat-button routerLink="/app/settings">
+        <mat-icon>tune</mat-icon>
+        Settings
+      </a>
+    </div>
+  </nx-section-card>
+
+  <nx-section-card title="Recent records" subtitle="Last opened from this browser">
+    @if (recentEntries().length === 0) {
+      <p class="nx-muted">Open an entity detail page to build this list.</p>
+    } @else {
+      <mat-nav-list class="nx-dashboard__recent">
+        @for (r of recentEntries(); track r.id) {
+          <a mat-list-item [routerLink]="['/app/entities', r.id]">
+            <span matListItemTitle>{{ r.name }}</span>
+            <span matListItemLine class="nx-muted">{{ r.id }}</span>
+          </a>
+        }
+      </mat-nav-list>
+    }
+  </nx-section-card>
+</div>

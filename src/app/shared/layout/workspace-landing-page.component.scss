@@ -1,0 +1,84 @@
+.nx-landing__hero {
+  padding: 2rem 1.75rem;
+}
+
+/* Primary hero line — two steps above former eyebrow (label-large → title-large → headline-small). */
+.nx-landing__hero-title {
+  font: var(--mat-sys-headline-small);
+  font-weight: 500;
+  color: var(--mat-sys-primary);
+  letter-spacing: -0.03em;
+  margin: 0 0 0.65rem;
+  line-height: 1.2;
+}
+
+.nx-landing__hero .nx-page-subtitle {
+  margin-top: 0;
+}
+
+.nx-landing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.nx-landing__map-lead {
+  margin: 0 0 1rem;
+  font: var(--mat-sys-body-large);
+  line-height: 1.55;
+}
+
+.nx-landing nx-section-card .mat-mdc-button-base mat-icon {
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.nx-landing__paths {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nx-landing__path-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.nx-landing__path-item:first-child {
+  padding-top: 0;
+}
+
+.nx-landing__path-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.nx-landing__path-label {
+  font: var(--mat-sys-title-small);
+  margin: 0;
+}
+
+.nx-landing__path-code {
+  font-size: 0.85em;
+  align-self: flex-start;
+}
+
+.nx-landing__path-hint {
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+  line-height: 1.45;
+}
+
+code {
+  font-size: 0.9em;
+  background: var(--mat-sys-surface-container-high);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}

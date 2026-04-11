@@ -1,0 +1,52 @@
+<div class="nx-entity-catalog-toolbar">
+  <mat-form-field appearance="outline" class="nx-entity-catalog-toolbar__search">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="search"
+      [value]="store.searchQuery()"
+      (input)="setSearch($event)"
+      autocomplete="off"
+      placeholder="Name, description, owner…"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+    <mat-select [value]="store.statusFilter()" (valueChange)="setStatus($event)">
+      <mat-option value="all">All</mat-option>
+      <mat-option value="draft">Draft</mat-option>
+      <mat-option value="active">Active</mat-option>
+      <mat-option value="archived">Archived</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Category</mat-label>
+    <mat-select [value]="store.categoryFilter()" (valueChange)="setCategory($event)">
+      <mat-option value="all">All</mat-option>
+      <mat-option value="general">General</mat-option>
+      <mat-option value="research">Research</mat-option>
+      <mat-option value="operations">Operations</mat-option>
+      <mat-option value="internal">Internal</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Sort by</mat-label>
+    <mat-select [value]="store.sortKey()" (valueChange)="setSortKey($event)">
+      <mat-option value="updatedAt">Updated</mat-option>
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="status">Status</mat-option>
+      <mat-option value="priority">Priority</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-stroked-button
+    type="button"
+    class="nx-entity-catalog-toolbar__sort-dir"
+    (click)="toggleSortDir()"
+    [attr.aria-label]="store.sortDir() === 'asc' ? 'Sort ascending' : 'Sort descending'"
+  >
+    <mat-icon>{{ store.sortDir() === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+    {{ store.sortDir() === 'asc' ? 'Asc' : 'Desc' }}
+  </button>
+</div>

@@ -1,0 +1,44 @@
+<mat-sidenav-container class="nx-shell">
+  <mat-sidenav
+    [opened]="sidenavOpen()"
+    mode="side"
+    class="nx-shell__nav nx-product-surface"
+    [disableClose]="true"
+  >
+    <div class="nx-shell__inner">
+    <div class="nx-shell__brand-wrap">
+      <div class="nx-shell__brand">Nexir Core Workspace</div>
+      <div class="nx-shell__brand-divider" aria-hidden="true"></div>
+    </div>
+    <mat-nav-list class="nx-shell__primary-nav">
+      <nx-shell-nav-item label="Dashboard" icon="dashboard" link="/app/dashboard" />
+      <nx-shell-nav-item label="Entities" icon="table_rows" link="/app/entities" />
+      <nx-shell-nav-item label="Favorites" icon="star" link="/app/favorites" />
+      <nx-shell-nav-item label="Settings" icon="tune" link="/app/settings" />
+    </mat-nav-list>
+    <div class="nx-shell__nav-spacer" aria-hidden="true"></div>
+    <mat-nav-list class="nx-shell__footer-nav">
+      <nx-shell-nav-item label="Account" icon="account_circle" link="/app/account" />
+    </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="nx-shell__toolbar">
+      <button
+        mat-icon-button
+        type="button"
+        (click)="toggleSidenav()"
+        aria-label="Toggle navigation"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="nx-shell__title">Workspace</span>
+      <span class="nx-shell__spacer"></span>
+      <button mat-button type="button" (click)="authStore.logout()">Sign out</button>
+    </mat-toolbar>
+    <main class="nx-shell__main">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

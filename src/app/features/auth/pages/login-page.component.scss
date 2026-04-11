@@ -1,0 +1,65 @@
+.nx-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  box-sizing: border-box;
+}
+
+.nx-login__card {
+  width: 100%;
+  max-width: 520px;
+}
+
+.nx-login__card .mat-mdc-card-header {
+  padding: 2rem 2rem 0;
+}
+
+.nx-login__card .mat-mdc-card-content {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.nx-login__inline-link {
+  color: var(--mat-sys-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nx-login__inline-link:hover {
+  text-decoration: underline;
+}
+
+.nx-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 0.35rem;
+}
+
+.nx-login__field {
+  width: 100%;
+}
+
+.nx-login__field-icon {
+  color: var(--mat-sys-on-surface-variant);
+  margin-right: 0.25rem;
+}
+
+.nx-login__error {
+  color: var(--mat-sys-error);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+}
+
+.nx-login__footer {
+  margin-top: 1.85rem;
+  margin-bottom: 0;
+}
+
+code {
+  font-size: 0.9em;
+  background: var(--mat-sys-surface-container-high);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}

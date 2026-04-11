@@ -1,0 +1,59 @@
+<div class="nx-product-page nx-entities-list">
+  <header class="nx-entities-list__header">
+    <div class="nx-page-header">
+      <h1 class="nx-page-title">Entities</h1>
+      <p class="nx-page-subtitle">
+        Search and filter the catalog. Star a row for Favorites; click a row to edit. Detail view remains
+        available from the record header after save.
+      </p>
+    </div>
+    <button mat-flat-button color="primary" type="button" (click)="newEntity()">
+      <mat-icon>add</mat-icon>
+      New entity
+    </button>
+  </header>
+
+  @if (store.loading() && store.items().length === 0) {
+    <div class="nx-entities-list__loading">
+      <mat-progress-spinner diameter="40" mode="indeterminate" />
+    </div>
+  } @else if (store.errorMessage()) {
+    <mat-card appearance="outlined" class="nx-product-surface nx-entities-list__panel">
+      <mat-card-content>
+        <p class="nx-entities-list__error" role="alert">{{ store.errorMessage() }}</p>
+        <button mat-stroked-button type="button" (click)="retry()">Retry</button>
+      </mat-card-content>
+    </mat-card>
+  } @else if (store.items().length === 0) {
+    <nx-empty-state
+      title="No records"
+      description="Create an entity or reload the list."
+      icon="inventory_2"
+      actionLabel="Reload"
+      (action)="retry()"
+    />
+  } @else {
+    <mat-card appearance="outlined" class="nx-product-surface nx-entities-list__panel-card">
+      <mat-card-content class="nx-entities-list__toolbar-wrap">
+        <nx-entity-catalog-toolbar />
+      </mat-card-content>
+
+      <mat-divider />
+
+      <nx-entity-catalog-table
+        [rows]="pagedRows()"
+        (editRow)="openEdit($event)"
+        (favoriteToggle)="toggleFavorite($event.id, $event.event)"
+      />
+
+      <mat-paginator
+        [length]="totalFiltered()"
+        [pageIndex]="pageIndex()"
+        [pageSize]="pageSize()"
+        [pageSizeOptions]="pageSizeOptions"
+        [showFirstLastButtons]="true"
+        (page)="onPage($event)"
+      />
+    </mat-card>
+  }
+</div>

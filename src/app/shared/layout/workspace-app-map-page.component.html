@@ -1,0 +1,77 @@
+<div class="nx-app-map nx-product-page">
+  <header class="nx-app-map__intro nx-product-surface">
+    <h1 class="nx-page-title">Application map</h1>
+    <p class="nx-page-subtitle">
+      How the Nexir Core workspace is structured: routes, layers, and where responsibilities live.
+    </p>
+    <div class="nx-app-map__actions">
+      <a mat-flat-button color="primary" routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+        Back to our view
+      </a>
+    </div>
+  </header>
+
+  <nx-section-card title="Routes" subtitle="Public and authenticated entry points">
+    <ul class="nx-app-map__list">
+      <li>
+        <strong>/</strong> — Landing; redirects to the app when you are already signed in.
+      </li>
+      <li>
+        <strong>/workspace-map</strong> — This orientation page (available before and after sign-in).
+      </li>
+      <li><strong>/login</strong>, <strong>/register</strong> — Guest-only authentication flows.</li>
+      <li>
+        <strong>/app/*</strong> — Authenticated product shell: sidebar, toolbar, and feature outlets.
+      </li>
+    </ul>
+  </nx-section-card>
+
+  <nx-section-card title="Inside /app" subtitle="Primary navigation">
+    <ul class="nx-app-map__list">
+      <li><strong>/app/dashboard</strong> — Session summary, quick actions, recent entities.</li>
+      <li>
+        <strong>/app/entities</strong> — Searchable catalog; star rows for Favorites; row opens the editor.
+        Create and edit use mock persistence (localStorage).
+      </li>
+      <li>
+        <strong>/app/favorites</strong> — Table of starred entities (same star toggle; row opens edit).
+      </li>
+      <li><strong>/app/account</strong> — Change password (mock user registry in this browser).</li>
+      <li>
+        <strong>/app/settings</strong> — Appearance: theme (system / light / dark) and UI density.
+      </li>
+    </ul>
+  </nx-section-card>
+
+  <nx-section-card title="Code layout" subtitle="Folders under <code>src/app</code>">
+    <dl class="nx-app-map__dl">
+      <div>
+        <dt>core</dt>
+        <dd>
+          Session, storage keys, guards, theme, validators, notifications, favorite ids (local mock state).
+        </dd>
+      </div>
+      <div>
+        <dt>shared</dt>
+        <dd>Layout shell, landing, application map, reusable UI blocks (cards, badges, empty states).</dd>
+      </div>
+      <div>
+        <dt>features</dt>
+        <dd>
+          Vertical slices: <code>auth</code>, <code>dashboard</code>, <code>entities</code>,
+          <code>favorites</code>, <code>settings</code>, <code>account</code> — routes, pages, stores/APIs per
+          feature.
+        </dd>
+      </div>
+    </dl>
+  </nx-section-card>
+
+  <nx-section-card title="Data &amp; mocks" subtitle="What persists where">
+    <p class="nx-muted">
+      Users and passwords (mock), session, preferences, entity rows, recent opens, and favorite ids are
+      stored in <code>localStorage</code> for this browser profile only. There is no backend in this
+      workspace.
+    </p>
+  </nx-section-card>
+</div>

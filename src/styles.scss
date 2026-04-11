@@ -1,1 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
+// Angular Material 3 — four runtime variants via `html.theme-*` + `html.density-*`
+// (see `AppThemeService` and `index.html` default classes).
+@use '@angular/material' as mat;
+@use './app/shared/styles/product-shell';
+
+html {
+  height: 100%;
+}
+
+html.theme-dark.density-comfortable {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: dark,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+html.theme-dark.density-compact {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: dark,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: -2,
+    )
+  );
+}
+
+html.theme-light.density-comfortable {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+html.theme-light.density-compact {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: -2,
+    )
+  );
+}
+
+/* Neutral base — slightly deeper than before so cards/shell feel less “flat gray”. */
+html.theme-dark {
+  --nx-app-bg: linear-gradient(168deg, #080a0d 0%, #0d1016 42%, #0a0c10 100%);
+  --nx-app-bg-accent: radial-gradient(90% 70% at 50% 0%, rgba(255, 255, 255, 0.035) 0%, transparent 55%);
+  --nx-surface-elevated: color-mix(in srgb, var(--mat-sys-surface-container-high) 64%, #0c1016 36%);
+  --nx-surface-inset: color-mix(in srgb, var(--mat-sys-surface-container) 50%, #0c0f14 50%);
+  --nx-card-border: color-mix(in srgb, var(--mat-sys-outline-variant) 82%, #252b34 18%);
+  --nx-card-border-strong: color-mix(in srgb, var(--mat-sys-outline-variant) 90%, #353d4a 10%);
+}
+
+html.theme-light {
+  --nx-app-bg: linear-gradient(168deg, #dde1e8 0%, #d8dce4 45%, #d3d8e2 100%);
+  --nx-app-bg-accent: radial-gradient(90% 70% at 50% 0%, rgba(255, 255, 255, 0.55) 0%, transparent 52%);
+  --nx-surface-elevated: color-mix(in srgb, var(--mat-sys-surface-container-lowest) 72%, #c9d0dc 28%);
+  --nx-surface-inset: color-mix(in srgb, var(--mat-sys-surface-container-low) 66%, #c8cfdb 34%);
+  --nx-card-border: color-mix(in srgb, var(--mat-sys-outline-variant) 78%, #aeb6c4 22%);
+  --nx-card-border-strong: color-mix(in srgb, var(--mat-sys-outline) 38%, #9aa6b8 62%);
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+  background-color: var(--mat-sys-surface);
+  background-image: var(--nx-app-bg-accent), var(--nx-app-bg);
+  background-attachment: fixed;
+}
+
+/* Snackbars — shared panel classes from `NotifyService` (Material MDC container). */
+.mat-mdc-snack-bar-container.nx-snackbar--success {
+  --mdc-snackbar-container-color: color-mix(
+    in srgb,
+    var(--mat-sys-primary) 16%,
+    var(--mat-sys-surface-container-high)
+  );
+  --mdc-snackbar-supporting-text-color: var(--mat-sys-on-surface);
+  --mat-snack-bar-button-color: var(--mat-sys-primary);
+}
+
+.mat-mdc-snack-bar-container.nx-snackbar--info {
+  --mdc-snackbar-container-color: var(--mat-sys-surface-container-high);
+  --mdc-snackbar-supporting-text-color: var(--mat-sys-on-surface-variant);
+  --mat-snack-bar-button-color: var(--mat-sys-primary);
+}
+
+.mat-mdc-snack-bar-container.nx-snackbar--error {
+  --mdc-snackbar-container-color: color-mix(
+    in srgb,
+    var(--mat-sys-error) 22%,
+    var(--mat-sys-surface-container-high)
+  );
+  --mdc-snackbar-supporting-text-color: var(--mat-sys-on-surface);
+  --mat-snack-bar-button-color: var(--mat-sys-error);
+}

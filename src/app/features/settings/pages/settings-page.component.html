@@ -1,0 +1,42 @@
+<div class="nx-product-page">
+  <div class="nx-page-header">
+    <h1 class="nx-page-title">Settings</h1>
+    <p class="nx-page-subtitle">
+      Workspace appearance is stored locally in this browser (mock preferences).
+    </p>
+  </div>
+
+  <nx-section-card title="Appearance" subtitle="Theme and list density">
+    <form [formGroup]="form" (ngSubmit)="save()" class="nx-settings__form">
+      <mat-form-field appearance="outline">
+        <mat-label>Theme</mat-label>
+        <mat-select formControlName="themeHint">
+          <mat-option value="system">System</mat-option>
+          <mat-option value="light">Light</mat-option>
+          <mat-option value="dark">Dark</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Density</mat-label>
+        <mat-select formControlName="density">
+          <mat-option value="comfortable">Comfortable</mat-option>
+          <mat-option value="compact">Compact</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      @if (store.errorMessage()) {
+        <p class="nx-settings__error" role="alert">{{ store.errorMessage() }}</p>
+      }
+
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        [disabled]="store.saving() || store.loading()"
+      >
+        {{ store.saving() ? 'Saving…' : 'Save preferences' }}
+      </button>
+    </form>
+  </nx-section-card>
+</div>

@@ -1,0 +1,94 @@
+@if (store.loading() && !store.selected()) {
+  <div class="nx-entity-detail__loading">
+    <p class="nx-muted">Loading…</p>
+  </div>
+} @else if (store.errorMessage() && !store.selected()) {
+  <div class="nx-product-page">
+    <mat-card appearance="outlined" class="nx-product-surface nx-entity-detail__error-card">
+      <mat-card-content>
+        <p class="nx-entity-detail__error" role="alert">{{ store.errorMessage() }}</p>
+        <button mat-stroked-button type="button" (click)="back()">Back to list</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+} @else if (store.selected(); as entity) {
+  <div class="nx-product-page nx-entity-detail">
+    <header class="nx-entity-detail__header">
+      <div>
+        <button mat-button type="button" (click)="back()" class="nx-entity-detail__back">
+          <mat-icon>arrow_back</mat-icon>
+          Entities
+        </button>
+        <h1 class="nx-page-title">{{ entity.name }}</h1>
+        <div class="nx-entity-detail__meta">
+          <nx-status-badge
+            [label]="formatCatalogLabel(entity.status)"
+            [tone]="entityStatusBadgeTone(entity.status)"
+          />
+          <span class="nx-muted nx-entity-detail__id">{{ entity.id }}</span>
+        </div>
+      </div>
+      <div class="nx-entity-detail__actions">
+        <a mat-stroked-button [routerLink]="['edit']">Edit</a>
+      </div>
+    </header>
+
+    <nx-section-card title="Overview" subtitle="Summary and primary attributes">
+      <p class="nx-entity-detail__description">{{ entity.description }}</p>
+      <div class="nx-entity-detail__stats">
+        <div class="nx-entity-detail__stat">
+          <span class="nx-entity-detail__stat-label">Category</span>
+          <span class="nx-entity-detail__stat-value">{{ formatCatalogLabel(entity.category) }}</span>
+        </div>
+        <div class="nx-entity-detail__stat">
+          <span class="nx-entity-detail__stat-label">Priority</span>
+          <span class="nx-entity-detail__stat-value">{{ formatCatalogLabel(entity.priority) }}</span>
+        </div>
+        <div class="nx-entity-detail__stat">
+          <span class="nx-entity-detail__stat-label">Owner</span>
+          <span class="nx-entity-detail__stat-value">{{ entity.owner }}</span>
+        </div>
+        <div class="nx-entity-detail__stat">
+          <span class="nx-entity-detail__stat-label">Created</span>
+          <span class="nx-entity-detail__stat-value">{{ entity.createdAt | date: 'medium' }}</span>
+        </div>
+        <div class="nx-entity-detail__stat">
+          <span class="nx-entity-detail__stat-label">Updated</span>
+          <span class="nx-entity-detail__stat-value">{{ entity.updatedAt | date: 'medium' }}</span>
+        </div>
+      </div>
+    </nx-section-card>
+
+    <nx-section-card title="Metadata" subtitle="Structured key–value context">
+      @if (entity.metadata.length === 0) {
+        <p class="nx-muted">No metadata entries.</p>
+      } @else {
+        <div class="nx-entity-detail__metadata-grid" role="list">
+          @for (m of entity.metadata; track m.key) {
+            <div class="nx-entity-detail__metadata-tile" role="listitem">
+              <span class="nx-entity-detail__metadata-key">{{ m.key }}</span>
+              <span class="nx-entity-detail__metadata-val">{{ m.value }}</span>
+            </div>
+          }
+        </div>
+      }
+    </nx-section-card>
+
+    <nx-section-card title="Activity" subtitle="Recent changes (mock)">
+      <mat-list class="nx-entity-detail__activity">
+        @for (a of entity.activity; track a.id) {
+          <mat-list-item>
+            <mat-icon matListItemIcon class="nx-entity-detail__activity-icon">history</mat-icon>
+            <span matListItemTitle>{{ a.message }}</span>
+            <span matListItemLine class="nx-muted">
+              {{ a.at | date: 'medium' }}
+              @if (a.actor) {
+                — {{ a.actor }}
+              }
+            </span>
+          </mat-list-item>
+        }
+      </mat-list>
+    </nx-section-card>
+  </div>
+}

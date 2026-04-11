@@ -1,0 +1,53 @@
+<div class="nx-product-page nx-account">
+  <div class="nx-page-header">
+    <h1 class="nx-page-title">Account</h1>
+    <p class="nx-page-subtitle">
+      Signed in as <strong>{{ session.userEmail() ?? '—' }}</strong>
+    </p>
+  </div>
+
+  <nx-section-card title="Password" subtitle="Update credentials for this browser-local mock account">
+    <form class="nx-account__form" [formGroup]="form" (ngSubmit)="submit()">
+      <p class="nx-muted nx-account__rules">{{ passwordHint }}</p>
+      <mat-form-field appearance="outline" class="nx-account__field">
+        <mat-label>Current password</mat-label>
+        <input matInput type="password" formControlName="currentPassword" autocomplete="current-password" />
+        @if (form.controls.currentPassword.hasError('required')) {
+          <mat-error>Required</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="nx-account__field">
+        <mat-label>New password</mat-label>
+        <input matInput type="password" formControlName="newPassword" autocomplete="new-password" />
+        @if (form.controls.newPassword.hasError('required')) {
+          <mat-error>Required</mat-error>
+        }
+        @if (form.controls.newPassword.hasError('passwordLength')) {
+          <mat-error>At least 8 characters</mat-error>
+        }
+        @if (form.controls.newPassword.hasError('passwordUppercase')) {
+          <mat-error>Include an uppercase letter</mat-error>
+        }
+        @if (form.controls.newPassword.hasError('passwordDigit')) {
+          <mat-error>Include a digit</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="nx-account__field">
+        <mat-label>Confirm new password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" autocomplete="new-password" />
+        @if (form.controls.confirmPassword.hasError('required')) {
+          <mat-error>Required</mat-error>
+        }
+      </mat-form-field>
+      @if (form.hasError('passwordMismatch') && (form.touched || form.dirty)) {
+        <p class="nx-account__error" role="alert">New passwords do not match.</p>
+      }
+      @if (errorMessage) {
+        <p class="nx-account__error" role="alert">{{ errorMessage }}</p>
+      }
+      <button mat-flat-button color="primary" type="submit" [disabled]="busy">
+        {{ busy ? 'Saving…' : 'Update password' }}
+      </button>
+    </form>
+  </nx-section-card>
+</div>

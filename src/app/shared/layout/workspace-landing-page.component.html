@@ -1,0 +1,43 @@
+<div class="nx-landing nx-product-page">
+  <header class="nx-landing__hero nx-product-surface">
+    <h1 class="nx-landing__hero-title">Nexir Core Workspace</h1>
+    <p class="nx-page-subtitle">
+      A neutral product shell for authentication, routing, entities, and local preferences—ready for
+      focused engineering tasks.
+    </p>
+    <div class="nx-landing__actions">
+      <a mat-flat-button color="primary" routerLink="/login">Sign in</a>
+      <a mat-stroked-button routerLink="/register">Create account</a>
+    </div>
+  </header>
+
+  <nx-section-card title="Explore the app" subtitle="Structure and routes">
+    <p class="nx-landing__map-lead">
+      See how routes, features, and mock data fit together—navigation, guards, and folder layout in
+      one place.
+    </p>
+    <a mat-flat-button color="primary" routerLink="/workspace-map">
+      <mat-icon>map</mat-icon>
+      View application map
+    </a>
+  </nx-section-card>
+
+  <nx-section-card title="Where to start in the repo" subtitle="Common touchpoints">
+    <ul class="nx-landing__paths">
+      @for (p of paths; track p.path) {
+        <li class="nx-landing__path-item">
+          <span class="nx-landing__path-label">{{ p.label }}</span>
+          <code class="nx-landing__path-code">{{ p.path }}</code>
+          <span class="nx-muted nx-landing__path-hint">{{ p.hint }}</span>
+        </li>
+      }
+    </ul>
+  </nx-section-card>
+
+  <nx-info-panel title="Access">
+    <p>
+      Routes under <code>/app</code> require an active session. Use the links above to sign in or
+      register a test account.
+    </p>
+  </nx-info-panel>
+</div>

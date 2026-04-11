@@ -1,0 +1,43 @@
+.nx-entity-catalog-table__wrap {
+  overflow: auto;
+}
+
+.nx-entity-catalog-table__table {
+  width: 100%;
+  min-width: 720px;
+}
+
+.nx-data-table__col-fav {
+  width: 3.25rem;
+  padding-inline: 0.25rem !important;
+  text-align: center;
+}
+
+.nx-data-table__star--on {
+  color: #f59e0b;
+}
+
+.nx-data-table__cell-name {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.nx-data-table__cell-status {
+  white-space: nowrap;
+}
+
+.nx-data-table__cell-muted {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-medium);
+}
+
+.nx-data-table__cell-priority {
+  font: var(--mat-sys-body-medium);
+  font-weight: 500;
+}
+
+.nx-data-table__cell-date {
+  font: var(--mat-sys-body-small);
+  color: var(--mat-sys-on-surface-variant);
+  white-space: nowrap;
+}

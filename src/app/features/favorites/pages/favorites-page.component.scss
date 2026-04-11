@@ -1,0 +1,40 @@
+.nx-favorites__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nx-favorites__loading {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+}
+
+.nx-favorites__error-card .mat-mdc-card-content {
+  padding: 1.25rem 1.5rem;
+}
+
+.nx-favorites__error {
+  color: var(--mat-sys-error);
+  margin: 0 0 1rem;
+}
+
+.nx-favorites__panel-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.nx-favorites__panel-card > .nx-favorites__toolbar-wrap {
+  padding: 1.25rem 1.5rem 1rem;
+}
+
+.nx-favorites__panel-card .mat-divider {
+  border-top-color: var(--nx-card-border);
+}
+
+.nx-favorites__panel-card mat-paginator {
+  border-top: 1px solid var(--nx-card-border);
+  background-color: var(--nx-surface-elevated);
+}

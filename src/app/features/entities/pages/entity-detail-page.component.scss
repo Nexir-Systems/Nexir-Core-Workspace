@@ -1,0 +1,110 @@
+.nx-entity-detail__loading {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.nx-entity-detail__error-card {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.nx-entity-detail__error {
+  color: var(--mat-sys-error);
+  margin: 0 0 1rem;
+}
+
+.nx-entity-detail__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nx-entity-detail__back {
+  margin: 0 0 0.5rem -0.5rem;
+}
+
+.nx-entity-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.nx-entity-detail__id {
+  font: var(--mat-sys-label-medium);
+  letter-spacing: 0.04em;
+}
+
+.nx-entity-detail__description {
+  margin: 0 0 1.35rem;
+  font: var(--mat-sys-body-large);
+  line-height: 1.6;
+  max-width: 52rem;
+}
+
+.nx-entity-detail__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.85rem;
+}
+
+.nx-entity-detail__stat {
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background-color: color-mix(in srgb, var(--mat-sys-surface-container-high) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 65%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nx-entity-detail__stat-label {
+  font: var(--mat-sys-label-medium);
+  color: var(--mat-sys-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+.nx-entity-detail__stat-value {
+  font: var(--mat-sys-body-large);
+  color: var(--mat-sys-on-surface);
+}
+
+.nx-entity-detail__metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+}
+
+.nx-entity-detail__metadata-tile {
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline-variant) 75%, transparent);
+  background-color: color-mix(in srgb, var(--mat-sys-surface-container) 55%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nx-entity-detail__metadata-key {
+  font: var(--mat-sys-label-large);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.nx-entity-detail__metadata-val {
+  font: var(--mat-sys-body-medium);
+  color: var(--mat-sys-on-surface);
+  word-break: break-word;
+}
+
+.nx-entity-detail__activity {
+  padding: 0;
+}
+
+.nx-entity-detail__activity-icon {
+  color: var(--mat-sys-on-surface-variant);
+}

@@ -1,0 +1,40 @@
+.nx-entities-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nx-entities-list__loading {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+}
+
+.nx-entities-list__error {
+  color: var(--mat-sys-error);
+  margin: 0 0 1rem;
+}
+
+.nx-entities-list__panel {
+  padding: 0.25rem 0;
+}
+
+.nx-entities-list__panel-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.nx-entities-list__panel-card > .nx-entities-list__toolbar-wrap {
+  padding: 1.25rem 1.5rem 1rem;
+}
+
+.nx-entities-list__panel-card .mat-divider {
+  border-top-color: var(--nx-card-border);
+}
+
+.nx-entities-list__panel-card mat-paginator {
+  border-top: 1px solid var(--nx-card-border);
+  background-color: var(--nx-surface-elevated);
+}

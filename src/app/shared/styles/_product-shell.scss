@@ -1,0 +1,122 @@
+/**
+ * Product shell — spacing, elevation, surfaces (including Material cards).
+ */
+.nx-product-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem 3.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.nx-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* Ensure outlined Material cards pick up the same tokens as custom surfaces. */
+.mat-mdc-card.nx-product-surface {
+  --mat-card-outlined-outline-color: var(--nx-card-border, var(--mat-sys-outline-variant));
+  background-color: var(--nx-surface-elevated, var(--mat-sys-surface-container-lowest)) !important;
+  border-color: var(--nx-card-border, var(--mat-sys-outline-variant)) !important;
+  border-radius: 14px;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--mat-sys-outline) 12%, transparent),
+    0 2px 12px rgba(0, 0, 0, 0.14),
+    0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+html.theme-light .mat-mdc-card.nx-product-surface {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--mat-sys-outline) 18%, transparent),
+    0 2px 10px rgba(15, 23, 42, 0.06),
+    0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+.nx-product-surface:not(.mat-mdc-card) {
+  background-color: var(--nx-surface-elevated, var(--mat-sys-surface-container-lowest));
+  border: 1px solid var(--nx-card-border, var(--mat-sys-outline-variant));
+  border-radius: 14px;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--mat-sys-outline) 12%, transparent),
+    0 2px 12px rgba(0, 0, 0, 0.14),
+    0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+html.theme-light .nx-product-surface:not(.mat-mdc-card) {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--mat-sys-outline) 18%, transparent),
+    0 2px 10px rgba(15, 23, 42, 0.06),
+    0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+/* Nested blocks inside a card (forms): slightly inset tone + stronger edge. */
+.nx-card--inset {
+  background-color: var(--nx-surface-inset, var(--mat-sys-surface-container)) !important;
+  border-color: var(--nx-card-border-strong, var(--mat-sys-outline-variant)) !important;
+}
+
+.nx-muted {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-medium);
+}
+
+.nx-page-title {
+  font: var(--mat-sys-headline-small);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.nx-page-subtitle {
+  font: var(--mat-sys-body-large);
+  margin: 0;
+  color: var(--mat-sys-on-surface-variant);
+  max-width: 42rem;
+}
+
+/* Tables inside elevated cards — align with card surface (see entities & favorites lists). */
+.mat-mdc-card.nx-product-surface .mat-mdc-table {
+  background-color: var(--nx-surface-elevated);
+}
+
+.mat-mdc-card.nx-product-surface .mat-mdc-header-row {
+  background-color: color-mix(in srgb, var(--nx-surface-elevated) 86%, var(--mat-sys-primary) 9%);
+}
+
+.mat-mdc-card.nx-product-surface .mat-mdc-header-cell {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-label-large);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom-color: var(--nx-card-border) !important;
+}
+
+.mat-mdc-card.nx-product-surface .mat-mdc-cell {
+  border-bottom-color: var(--nx-card-border) !important;
+  color: var(--mat-sys-on-surface);
+  padding-top: 0.65rem !important;
+  padding-bottom: 0.65rem !important;
+  vertical-align: middle;
+}
+
+.mat-mdc-card.nx-product-surface .mat-mdc-row {
+  background-color: var(--nx-surface-elevated);
+}
+
+.mat-mdc-card.nx-product-surface tr.mat-mdc-row.nx-data-table__row {
+  cursor: pointer;
+}
+
+.mat-mdc-card.nx-product-surface tr.mat-mdc-row.nx-data-table__row:hover {
+  background-color: color-mix(in srgb, var(--mat-sys-on-surface) 6%, var(--nx-surface-elevated) 94%) !important;
+}
+
+.mat-mdc-card.nx-product-surface tr.mat-mdc-row.nx-data-table__row:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--mat-sys-primary) 55%, transparent);
+  outline-offset: -2px;
+}

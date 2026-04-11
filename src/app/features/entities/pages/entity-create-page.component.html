@@ -1,0 +1,35 @@
+<div class="nx-product-page nx-entity-form-page">
+  <header class="nx-entity-form-page__header">
+    <button mat-button type="button" (click)="cancel()" class="nx-entity-form-page__back">
+      <mat-icon>arrow_back</mat-icon>
+      Entities
+    </button>
+    <h1 class="nx-page-title">New entity</h1>
+    <p class="nx-page-subtitle">Create a record with structured fields. Nothing is saved until you submit.</p>
+  </header>
+
+  <form class="nx-entity-form-page__form" (ngSubmit)="submit()">
+    <mat-card appearance="outlined" class="nx-product-surface nx-entity-form-page__fields-card">
+      <mat-card-content>
+        <nx-entity-form-fields [form]="form" />
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="nx-product-surface nx-entity-form-page__actions-card">
+      <mat-card-content class="nx-entity-form-page__actions">
+        @if (store.errorMessage()) {
+          <p class="nx-entity-form-page__error" role="alert">{{ store.errorMessage() }}</p>
+        }
+        <div class="nx-entity-form-page__buttons">
+          <button mat-button type="button" (click)="cancel()">Cancel</button>
+          <div class="nx-entity-form-page__buttons-end">
+            <button mat-stroked-button type="button" (click)="applySample()">Generate sample data</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="store.loading()">
+              {{ store.loading() ? 'Saving…' : 'Create entity' }}
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+.nx-account__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 26rem;
+}
+
+.nx-account__rules {
+  margin: 0 0 0.25rem;
+  font: var(--mat-sys-body-small);
+}
+
+.nx-account__field {
+  width: 100%;
+}
+
+.nx-account__error {
+  color: var(--mat-sys-error);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+}

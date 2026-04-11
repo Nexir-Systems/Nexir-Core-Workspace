@@ -1,0 +1,68 @@
+<div class="nx-product-page nx-favorites">
+  <header class="nx-favorites__header">
+    <div class="nx-page-header">
+      <h1 class="nx-page-title">Favorites</h1>
+      <p class="nx-page-subtitle">
+        Starred records from the catalog, using the same search and filters as Entities. Click a row to
+        edit; use the star to remove from this list.
+      </p>
+    </div>
+    <a mat-stroked-button routerLink="/app/entities">
+      <mat-icon>table_rows</mat-icon>
+      All entities
+    </a>
+  </header>
+
+  @if (store.loading() && store.items().length === 0) {
+    <div class="nx-favorites__loading">
+      <mat-progress-spinner diameter="40" mode="indeterminate" />
+    </div>
+  } @else if (store.errorMessage()) {
+    <mat-card appearance="outlined" class="nx-product-surface nx-favorites__error-card">
+      <mat-card-content>
+        <p class="nx-favorites__error" role="alert">{{ store.errorMessage() }}</p>
+        <button mat-stroked-button type="button" (click)="retryLoad()">Retry</button>
+      </mat-card-content>
+    </mat-card>
+  } @else if (favorites.ids().length === 0) {
+    <nx-empty-state
+      title="No favorites yet"
+      description="Open Entities and click the star on any row to add it here."
+      icon="star_outline"
+      actionLabel="Go to entities"
+      (action)="goToEntities()"
+    />
+  } @else if (totalFilteredFavorites() === 0) {
+    <nx-empty-state
+      title="No matching favorites"
+      description="Try adjusting search or filters — or clear them to see every starred record."
+      icon="filter_alt_off"
+      actionLabel="Clear filters"
+      (action)="clearCatalogFilters()"
+    />
+  } @else {
+    <mat-card appearance="outlined" class="nx-product-surface nx-favorites__panel-card">
+      <mat-card-content class="nx-favorites__toolbar-wrap">
+        <nx-entity-catalog-toolbar />
+      </mat-card-content>
+
+      <mat-divider />
+
+      <nx-entity-catalog-table
+        [rows]="pagedRows()"
+        [favoriteStarFilled]="true"
+        (editRow)="openEdit($event)"
+        (favoriteToggle)="toggleFavorite($event.id, $event.event)"
+      />
+
+      <mat-paginator
+        [length]="totalFilteredFavorites()"
+        [pageIndex]="pageIndex()"
+        [pageSize]="pageSize()"
+        [pageSizeOptions]="pageSizeOptions"
+        [showFirstLastButtons]="true"
+        (page)="onPage($event)"
+      />
+    </mat-card>
+  }
+</div>
