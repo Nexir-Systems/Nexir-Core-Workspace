@@ -2,14 +2,27 @@
 
 Angular **21** SPA: a **product-style shell** with mock auth, entities, favorites, settings, and local persistence—useful as a reference workspace or onboarding playground. **UI copy is English-only.**
 
+<p align="center">
+  <a href="https://nexir-systems.github.io/Nexir-Core-Workspace/">
+    <img src="https://img.shields.io/badge/Open%20live%20app-0f172a?style=for-the-badge&logo=angular&logoColor=dd0031" alt="Open live app (GitHub Pages)">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://nexir-systems.github.io/Nexir-Core-Workspace/"><strong>nexir-systems.github.io/Nexir-Core-Workspace</strong></a>
+  <br>
+  <sub>Public build served from the <code>main</code> branch via GitHub Actions.</sub>
+</p>
+
 ## Quick start
 
 | Step | Command / action |
 | ---- | ---------------- |
-| 1 | `npm install` |
-| 2 | `npm start` → open `http://localhost:4200` |
-| 3 | Register a test account at `/register` or use **Application map** (`/workspace-map`) for a route overview |
-| 4 | After sign-in, the app lives under **`/app/*`** (sidebar + toolbar) |
+| 1 | **Live:** open **[the deployed app](https://nexir-systems.github.io/Nexir-Core-Workspace/)** (GitHub Pages) |
+| 2 | `npm install` |
+| 3 | `npm start` → open `http://localhost:4200` |
+| 4 | Register a test account at `/register` or use **Application map** (`/workspace-map`) for a route overview |
+| 5 | After sign-in, the app lives under **`/app/*`** (sidebar + toolbar) |
 
 ## Scripts
 
